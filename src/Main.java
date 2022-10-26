@@ -7,26 +7,31 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        FileReader fr = new FileReader(
-                "C:\\Users\\w0748346\\Desktop\\Random.txt");     //expects arguements (string) file location + filename
+    public static void main(String[] args) {
+        try {
+            FileReader fr = null;
+            //exception that file to be read may not exist
+            fr = new FileReader(
+                    "C:\\Users\\w0748346\\Desktop\\fileNotFound.txt");     //expects arguements (string) file location + filename
 
-        //READ STuFF FROM TEXT FILE
-/*
-        char c = (char)fr.read();
-        System.out.println(c);          //read char itself
 
-        c = (char)fr.read();
-        System.out.println(c);         //internal system keeps track of the char's that get read
+            //READ STuFF FROM TEXT FILE
+            //fr.read() fail because filereader wasnt actually instantiated
 
-        c = (char)fr.read();
-        System.out.println(c);
+            char c = (char) fr.read();
+            System.out.println(c);          //read char itself
 
-        int i = fr.read();
-        System.out.println(i);     // when there is no more characters, will read -1
-*/
+            c = (char) fr.read();
+            System.out.println(c);         //internal system keeps track of the char's that get read
+
+            c = (char) fr.read();
+            System.out.println(c);
+
+            int i = fr.read();
+            System.out.println(i);     // when there is no more characters, will read -1
 
 /*
         //create a while loop until you get -1 to read all the available characters
@@ -50,7 +55,7 @@ public class Main {
 */
 
         //WRITE STUFF TO A FILE!!
-
+/*
         FileWriter fw = new FileWriter("C:\\Users\\w0748346\\Desktop\\bread.txt");
         // if we overload Filewriter constructor with (location, *true*) everytime you run the program, it'll add and not replace. Default is false
 
@@ -62,7 +67,17 @@ public class Main {
         fw.write(" is cool!");                  //can write several characters at the same time
         fw.close();                                 //this line does the actual writing of the file
 
+*/
+        }
+        catch (FileNotFoundException e) {
 
+        }
+        catch (IOException e) {
+
+        }
+        catch (Exception e) {
+
+        }
     }
 
 }
